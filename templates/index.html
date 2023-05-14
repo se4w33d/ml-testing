@@ -1,36 +1,67 @@
 <!DOCTYPE html>
-<html >
-<!--From https://codepen.io/frytyler/pen/EGdtg-->
-<head>
-  <meta charset="UTF-8">
-  <title>ML API</title>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  
-</head>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Housing Price Prediction</title>
+      <link
+        href="https://fonts.googleapis.com/css?family=Pacifico"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <link
+        href="https://fonts.googleapis.com/css?family=Arimo"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <link
+        href="https://fonts.googleapis.com/css?family=Hind:300"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+      />
+  </head>
 
-<body>
- <div class="login">
- <div>
-	
-	</div>
+  <body>
+    <div class="input_form">
+      <div></div>
 
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="YearsExperience" placeholder="<floor> <distance from noise> <# of convenience store>" required="required" />
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict')}}" method="post">
+        <input
+          type="text"
+          name="floor"
+          placeholder="<floor>"
+          required="required"
+        />
 
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-    </form>
+        <input
+          type="text"
+          name="distance_from_noise"
+          placeholder="<distance from noise>"
+          required="required"
+        />
 
-   <br>
-   <br>
-   {{ prediction_text }}
+        <input
+          type="text"
+          name="no_of_store"
+          placeholder="<# of convenience store>"
+          required="required"
+        />
 
- </div>
+        <input type="submit" value="Predict" class="btn btn-primary btn-block btn-large">
+      </form>
 
-
-</body>
+      <br />
+      <br />
+      {{ prediction_text }}
+    </div>
+  </body>
 </html>
